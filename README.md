@@ -1,0 +1,2 @@
+# Workshop
+Dockerized learning environment
