@@ -1,0 +1,21 @@
+version: '2.1'
+services:
+  dev:
+    restart: 'no'
+    build: ./docker
+    volumes:
+     - nvidia_driver_375.82:/usr/local/nvidia:ro
+     - ./data/:/root/data/
+     - ./src/:/root/Projects/
+    ports:
+     - 7777:7777
+    devices:
+     - /dev/nvidiactl
+     - /dev/nvidia-uvm
+     - /dev/nvidia0
+     - /dev/nvidia1
+     - /dev/nvidia2
+
+volumes:
+  nvidia_driver_375.82:
+    external: true
